@@ -14,10 +14,8 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnClose = null;
     private EditText mEdit = null;
     private Connection mConnect = null;
-
-    private String HOST = "10.120.51.22";
-    private int PORT = 9876;
-
+    private String HOST = "145.249.246.125";
+    private int PORT = 5959;
     private String LOG_TAG = "SOCKET";
 
     @Override
@@ -25,12 +23,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mBtnOpen  = (Button)   findViewById(R.id.btn_open);
-        mBtnSend  = (Button)   findViewById(R.id.btn_send);
-        mBtnClose = (Button)   findViewById(R.id.btn_close);
-        mEdit     = (EditText) findViewById(R.id.edText);
+        mBtnOpen = (Button) findViewById(R.id.btn_open);
+        mBtnSend = (Button) findViewById(R.id.btn_send);
+        mBtnClose = (Button) findViewById(R.id.btn_close);
+        mEdit = (EditText) findViewById(R.id.edText);
 
-        mBtnSend .setEnabled(false);
+        mBtnSend.setEnabled(false);
         mBtnClose.setEnabled(false);
 
         mBtnOpen.setOnClickListener(new View.OnClickListener() {
@@ -56,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void onOpenClick()
-    {
+    private void onOpenClick() {
         // Создание подключения
         mConnect = new Connection(HOST, PORT);
         // Открытие сокета в отдельном потоке
@@ -84,8 +81,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
     }
-    private void onSendClick()
-    {
+    private void onSendClick() {
         if (mConnect == null) {
             Log.d(LOG_TAG, "Соединение не установлено");
         }  else {
@@ -107,8 +103,7 @@ public class MainActivity extends AppCompatActivity {
             }).start();
         }
     }
-    private void onCloseClick()
-    {
+    private void onCloseClick() {
         // Закрытие соединения
         mConnect.closeConnection();
         // Блокирование кнопок

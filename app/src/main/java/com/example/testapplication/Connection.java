@@ -27,8 +27,7 @@ public class Connection {
             // Создание сокета
             mSocket = new Socket(mHost, mPort);
         } catch (IOException e) {
-            throw new Exception("Невозможно создать сокет: "
-                    + e.getMessage());
+            throw new Exception("Невозможно создать сокет: " + e.getMessage());
         }
     }
     /**
@@ -39,8 +38,7 @@ public class Connection {
             try {
                 mSocket.close();
             } catch (IOException e) {
-                Log.e(LOG_TAG, "Ошибка при закрытии сокета :"
-                        + e.getMessage());
+                Log.e(LOG_TAG, "Ошибка при закрытии сокета :" + e.getMessage());
             } finally {
                 mSocket = null;
             }
